@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    user:
+      name: admin
+      password: admin123
+      roles: ADMIN
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bank_cards
+    username: postgres
+    password: 3102032
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/migration/master.xml
+
+  jackson:
+    serialization:
+      indent_output: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
